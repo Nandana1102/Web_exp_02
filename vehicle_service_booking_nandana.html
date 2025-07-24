@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vehicle Service Booking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      text-align: center;
+    }
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    fieldset {
+      border: none;
+      margin-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.3rem;
+      box-sizing: border-box;
+    }
+    .inline-group {
+      display: flex;
+      gap: 1rem;
+    }
+    .inline-group label {
+      font-weight: normal;
+      margin-top: 0.5rem;
+    }
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+    }
+    progress {
+      width: 100%;
+      height: 20px;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Vehicle Service Booking</h1>
+
+  <!-- Registration Form -->
+  <form action="/serverlogic" method="post" enctype="multipart/form-data">
+    <fieldset>
+      <legend>Personal Information</legend>
+
+      <label for="fullname">Full Name:</label>
+      <input type="text" id="fullname" name="fullname" required placeholder="Enter your full name" maxlength="50" autofocus>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required placeholder="example@mail.com">
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" placeholder="10-digit number">
+
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required max="2025-01-01">
+    </fieldset>
+
+    <fieldset>
+      <legend>Vehicle Details</legend>
+
+      <label for="vehicle-type">Vehicle Type:</label>
+      <select id="vehicle-type" name="vehicle-type" required>
+        <option value="">-- Select Vehicle Type --</option>
+        <option value="car">Car</option>
+        <option value="bike">Bike</option>
+        <option value="scooter">Scooter</option>
+        <option value="truck">Truck</option>
+        <option value="van">Van</option>
+      </select>
+
+      <label for="vehicle-number">Vehicle Number:</label>
+      <input type="text" id="vehicle-number" name="vehicle-number" required placeholder="e.g., KA01AB1234" pattern="[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}" maxlength="10">
+
+      <label for="service-date">Preferred Service Date:</label>
+      <input type="date" id="service-date" name="service-date" required>
+
+      <label for="service-count">Number of Services Completed:</label>
+      <input type="number" id="service-count" name="service-count" min="0" max="20" required>
+    </fieldset>
+
+    <fieldset>
+      <legend>Service Preferences</legend>
+
+      <label>Service Type:</label>
+      <div class="inline-group">
+        <label><input type="radio" name="service-type" value="general" required> General</label>
+        <label><input type="radio" name="service-type" value="premium"> Premium</label>
+      </div>
+
+      <label>Additional Services:</label>
+      <div class="inline-group">
+        <label><input type="checkbox" name="wash" value="yes"> Car Wash</label>
+        <label><input type="checkbox" name="oil-change" value="yes"> Oil Change</label>
+        <label><input type="checkbox" name="interior" value="yes"> Interior Cleaning</label>
+        <label><input type="checkbox" name="tyre-check" value="yes"> Tyre Check</label>
+      </div>
+
+      <label for="feedback">Special Instructions:</label>
+      <textarea id="feedback" name="feedback" placeholder="Write any specific instructions here..." rows="4"></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>Upload & Search</legend>
+
+      <label for="profile-pic">Upload Profile Picture:</label>
+      <input type="file" id="profile-pic" name="profile-pic" required>
+
+      <label for="search">Search Service Center:</label>
+      <input type="search" id="search" name="search" placeholder="Enter center name or location">
+
+      <label for="website">Your Website (if any):</label>
+      <input type="url" id="website" name="website" placeholder="https://example.com">
+    </fieldset>
+
+    <fieldset>
+      <legend>Progress & Controls</legend>
+
+      <label for="progress">Form Completion:</label>
+      <progress id="progress" value="90" max="100"></progress>
+
+      <div class="button-group">
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+      </div>
+    </fieldset>
+  </form>
+
+  <!-- This is the Vehicle Service Booking form with HTML5 validation -->
+
+</body>
+</html>
